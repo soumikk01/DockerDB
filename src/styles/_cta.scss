@@ -1,0 +1,50 @@
+@use 'variables' as *;
+
+.cta-section {
+  text-align: center;
+
+  .section-title {
+    margin-bottom: 1rem;
+  }
+
+  &__desc {
+    color: var(--text-tertiary);
+    font-size: 0.875rem;
+    max-width: 24rem;
+    margin: 0 auto 2rem;
+    font-weight: 300;
+    line-height: 1.625;
+  }
+}
+
+.cta-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+
+  @include sm-down {
+    flex-direction: column;
+  }
+}
+
+.cta-trust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+
+  @include sm-down {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__item {
+    font-size: 11px;
+    color: var(--text-quaternary);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+}

@@ -1,0 +1,53 @@
+// Keyframes
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+// Animation utilities
+.fade-in { animation: fadeIn 0.8s ease both; }
+.fade-in-up { animation: fadeInUp 0.7s ease both; }
+
+@for $i from 1 through 7 {
+  .delay-#{$i} { animation-delay: #{$i * 0.1}s; }
+}
+
+// Scroll reveal fallback keyframes — ensures content appears even if JS observer fails
+@keyframes revealFallback {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Scroll reveal
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  // CSS-only safety net: if .visible is never added, content still appears after 1s
+  animation: revealFallback 0.6s ease 1s both;
+
+  &.visible {
+    // When JS works, override the fallback animation and apply immediately
+    animation: none;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Cursor blink
+.cursor-blink {
+  animation: blink 1.2s step-end infinite;
+}

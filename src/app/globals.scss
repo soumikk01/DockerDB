@@ -1,0 +1,12 @@
+@use '../styles/base';
+@use '../styles/animations';
+@use '../styles/shared';
+@use '../styles/nav';
+@use '../styles/hero';
+@use '../styles/features';
+@use '../styles/workflow';
+@use '../styles/devex';
+@use '../styles/cta';
+@use '../styles/footer';
+
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&f[]=jet-brains-mono@400,500&display=swap');

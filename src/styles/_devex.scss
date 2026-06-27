@@ -1,0 +1,102 @@
+@use 'variables' as *;
+
+.devex__header {
+  margin-bottom: 3.5rem;
+}
+
+.devex-grid {
+  display: grid;
+  gap: 0.75rem;
+
+  @include lg {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.terminal-window {
+  background: var(--surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.625rem 1rem;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border-subtle);
+
+  &__label {
+    font-size: 10px;
+    color: var(--text-quaternary);
+    font-family: var(--font-mono);
+    margin-left: 0.5rem;
+  }
+}
+
+.terminal-body {
+  padding: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  line-height: 1.625;
+}
+
+.terminal-line { display: block; }
+.terminal-output { padding-left: 0.75rem; }
+.terminal-gap { margin-top: 0.25rem; }
+
+.prisma-window {
+  background: var(--surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.prisma-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.625rem 1rem;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border-subtle);
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__file {
+    font-size: 10px;
+    color: var(--text-quaternary);
+    font-family: var(--font-mono);
+  }
+
+  &__status {
+    font-size: 9px;
+    color: var(--emerald-400-40);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  &__status-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 9999px;
+    background: var(--emerald-400-40);
+    display: inline-block;
+  }
+}
+
+.prisma-body {
+  padding: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.7;
+}

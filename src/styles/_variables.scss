@@ -1,0 +1,11 @@
+// Breakpoints
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+
+// Mixins
+@mixin sm { @media (min-width: $bp-sm) { @content; } }
+@mixin md { @media (min-width: $bp-md) { @content; } }
+@mixin lg { @media (min-width: $bp-lg) { @content; } }
+@mixin sm-down { @media (max-width: #{$bp-md - 1px}) { @content; } }
+@mixin xs-down { @media (max-width: $bp-sm) { @content; } }

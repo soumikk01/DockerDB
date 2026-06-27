@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DockerDB — Local Databases. Cloud-Level Experience.</title>
+  <meta name="description" content="Create Docker-powered database workspaces in seconds — PostgreSQL, MongoDB, MySQL and more. The operating system for your data layer.">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Icons (Iconify) -->
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <div class="nav__left">
+        <a id="nav-home-link" href="#" class="nav__logo">
+          <img src="assets/logo.svg" alt="DockerDB" />
+        </a>
+        <div class="nav__links">
+          <a id="nav-features-link" href="#features" class="nav__link">Features</a>
+          <a id="nav-workflow-link" href="#workflow" class="nav__link">Workflow</a>
+          <a id="nav-devex-link" href="#devex" class="nav__link">Developer Experience</a>
+          <a id="nav-docs-link" href="#" class="nav__link">Docs</a>
+          <a id="nav-pricing-link" href="#" class="nav__link">Pricing</a>
+        </div>
+      </div>
+      <div class="nav__actions">
+        <a id="nav-signin-link" href="#" class="nav__signin">Sign in</a>
+        <a id="nav-cta-link" href="#" class="btn-primary btn-primary--nav">
+          Get Started
+          <iconify-icon icon="lucide:arrow-right" style="font-size: 0.75rem;"></iconify-icon>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="hero__glow"></div>
+    <div class="container">
+      <div class="hero__grid">
+        <!-- Left: Content -->
+        <div class="hero__content">
+          <!-- Badge -->
+          <div class="hero__badge fade-in-up">
+            <span class="hero__badge-dot"></span>
+            <span class="hero__badge-text">Now in Public Beta</span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="hero__headline fade-in-up delay-1">
+            Local Databases.<br>
+            <span>Cloud-Level Experience.</span>
+          </h1>
+
+          <!-- Subheadline -->
+          <p class="hero__subheadline fade-in-up delay-2">
+            Create Docker-powered database workspaces in seconds — PostgreSQL, MongoDB, MySQL and more. The operating system for your data layer.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="hero__cta-group fade-in-up delay-3">
+            <a id="cta-start-workspace" href="#" class="btn-primary">
+              <iconify-icon icon="lucide:play" style="font-size: 0.875rem;"></iconify-icon>
+              Start Workspace
+            </a>
+            <a id="cta-explore" href="#features" class="btn-secondary">
+              Explore Platform
+            </a>
+          </div>
+
+          <!-- Trust badges -->
+          <div class="hero__trust fade-in-up delay-4">
+            <span>PostgreSQL</span>
+            <span class="hero__trust-sep">·</span>
+            <span>MongoDB</span>
+            <span class="hero__trust-sep">·</span>
+            <span>MySQL</span>
+            <span class="hero__trust-sep">·</span>
+            <span>Redis</span>
+          </div>
+        </div>
+
+        <!-- Right: Workspace Illustration -->
+        <div class="hero__illustration fade-in-up delay-3">
+          <div class="workspace-card">
+            <!-- Window bar -->
+            <div class="window-bar">
+              <div class="window-dots">
+                <div class="window-dot"></div>
+                <div class="window-dot"></div>
+                <div class="window-dot"></div>
+              </div>
+              <span class="window-title">my-project — DockerDB</span>
+              <div class="window-spacer"></div>
+            </div>
+
+            <!-- Editor -->
+            <div class="editor-content">
+              <!-- Tab bar -->
+              <div class="tab-bar">
+                <div class="tab tab--active">SQL Editor</div>
+                <div class="tab tab--inactive">Schema</div>
+                <div class="tab tab--inactive">Tables</div>
+              </div>
+
+              <!-- SQL query -->
+              <div class="sql-block">
+                <div><span class="syn-keyword">SELECT</span> <span class="syn-text">u.name, u.email, count(p.id)</span></div>
+                <div><span class="syn-keyword">FROM</span> <span class="syn-table">users</span> <span class="syn-muted">u</span></div>
+                <div><span class="syn-keyword">LEFT JOIN</span> <span class="syn-table">posts</span> <span class="syn-muted">p</span> <span class="syn-keyword">ON</span> <span class="syn-muted">p.user_id = u.id</span></div>
+                <div><span class="syn-keyword">WHERE</span> <span class="syn-muted">u.status =</span> <span class="syn-string">'active'</span></div>
+                <div><span class="syn-keyword">GROUP BY</span> <span class="syn-muted">u.id</span></div>
+                <div><span class="syn-keyword">LIMIT</span> <span class="syn-number">10</span><span class="syn-muted cursor-blink">▎</span></div>
+              </div>
+
+              <!-- Results -->
+              <div class="results-table">
+                <div class="results-grid">
+                  <div class="results-header">name</div>
+                  <div class="results-header">email</div>
+                  <div class="results-header">count</div>
+                  <div class="results-cell results-cell--border">Sarah Chen</div>
+                  <div class="results-cell results-cell--muted results-cell--border">sarah@dev.io</div>
+                  <div class="results-cell results-cell--border">24</div>
+                  <div class="results-cell">Alex Kim</div>
+                  <div class="results-cell results-cell--muted">alex@app.co</div>
+                  <div class="results-cell">18</div>
+                </div>
+              </div>
+
+              <!-- Status bar -->
+              <div class="status-bar">
+                <div class="status-bar__left">
+                  <span class="status-indicator">
+                    <span class="status-dot"></span>Connected
+                  </span>
+                  <span class="status-info">PostgreSQL 16</span>
+                </div>
+                <span class="status-info">2 rows · 4ms</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating micro cards -->
+          <div class="floating-cards">
+            <div class="floating-card floating-card--left fade-in-up delay-5">
+              <div class="floating-card__inner">
+                <div class="floating-card__icon">
+                  <iconify-icon icon="simple-icons:postgresql" style="color: var(--accent); font-size: 10px;"></iconify-icon>
+                </div>
+                <div>
+                  <div class="floating-card__name">PostgreSQL</div>
+                  <div class="floating-card__status">
+                    <span class="status-dot--sm" style="width:4px;height:4px;border-radius:9999px;background:var(--emerald-400-60);"></span>Running
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="floating-card floating-card--right fade-in-up delay-6">
+              <div class="floating-card__inner">
+                <div class="floating-card__icon">
+                  <iconify-icon icon="simple-icons:mongodb" style="color: var(--emerald-500-70); font-size: 10px;"></iconify-icon>
+                </div>
+                <div>
+                  <div class="floating-card__name">MongoDB</div>
+                  <div class="floating-card__status">
+                    <span style="width:4px;height:4px;border-radius:9999px;background:var(--emerald-400-60);display:inline-block;"></span>Running
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="container"><div class="section-divider"></div></div>
+
+  <!-- ========== FEATURES (Bento Grid) ========== -->
+  <section id="features" class="section">
+    <div class="container">
+      <!-- Section header -->
+      <div style="margin-bottom: 4rem;" class="reveal">
+        <p class="section-label">Features</p>
+        <h2 class="section-title">
+          Everything you need.
+          <span>Nothing you don't.</span>
+        </h2>
+        <p class="section-desc">A complete toolkit for local database management — from schema design to production deployment.</p>
+      </div>
+
+      <!-- Bento grid -->
+      <div class="bento-grid">
+        <!-- Card 1: One-click setup (3-col) -->
+        <div class="bento-card bento-card--3col reveal">
+          <div class="card-icon card-icon--accent">
+            <iconify-icon icon="lucide:zap" style="color: var(--accent); font-size: 1rem;"></iconify-icon>
+          </div>
+          <h3 class="card-title">One-Click Database Setup</h3>
+          <p class="card-desc">Spin up PostgreSQL, MongoDB, or MySQL instantly. Zero config required.</p>
+          <div class="card-tags">
+            <span class="card-tag">PostgreSQL</span>
+            <span class="card-tag">MongoDB</span>
+            <span class="card-tag">MySQL</span>
+            <span class="card-tag">Redis</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Docker-powered (3-col) -->
+        <div class="bento-card bento-card--3col reveal">
+          <div class="card-icon card-icon--neutral">
+            <iconify-icon icon="simple-icons:docker" style="color: var(--text-secondary); font-size: 1rem;"></iconify-icon>
+          </div>
+          <h3 class="card-title">Docker-Powered Environments</h3>
+          <p class="card-desc">Every database runs in an isolated container. Reproducible, portable, fully under your control.</p>
+          <div class="card-terminal">
+            <span class="syn-dim">$</span> <span class="syn-text">docker ps</span>
+            <div style="margin-top: 0.25rem; color: var(--text-quaternary);">CONTAINER  IMAGE          STATUS</div>
+            <div class="syn-muted">users-db   postgres:16    <span class="syn-string">Up 2h</span></div>
+            <div class="syn-muted">logs-db    mongo:7        <span class="syn-string">Up 1h</span></div>
+          </div>
+        </div>
+
+        <!-- Card 3: ORM-Ready (2-col) -->
+        <div class="bento-card bento-card--2col reveal">
+          <div class="card-icon card-icon--neutral">
+            <iconify-icon icon="lucide:link" style="color: var(--text-secondary); font-size: 1rem;"></iconify-icon>
+          </div>
+          <h3 class="card-title">ORM-Ready Connections</h3>
+          <p class="card-desc card-desc--no-mb">Auto-generated configs for Prisma, Drizzle, TypeORM. Copy and go.</p>
+        </div>
+
+        <!-- Card 4: Local → Prod (2-col) -->
+        <div class="bento-card bento-card--2col reveal">
+          <div class="card-icon card-icon--neutral">
+            <iconify-icon icon="lucide:cloud-upload" style="color: var(--text-secondary); font-size: 1rem;"></iconify-icon>
+          </div>
+          <h3 class="card-title">Local → Production</h3>
+          <p class="card-desc card-desc--no-mb">Push local schemas to cloud databases with a single command. Zero downtime.</p>
+        </div>
+
+        <!-- Card 5: Visual Tables (2-col) -->
+        <div class="bento-card bento-card--2col reveal">
+          <div class="card-icon card-icon--neutral">
+            <iconify-icon icon="lucide:table-2" style="color: var(--text-secondary); font-size: 1rem;"></iconify-icon>
+          </div>
+          <h3 class="card-title">Visual Table Builder</h3>
+          <p class="card-desc card-desc--no-mb">Design tables visually. Add columns, set types, define relations intuitively.</p>
+        </div>
+
+        <!-- Card 6: SQL Editor (4-col) -->
+        <div class="bento-card bento-card--4col reveal">
+          <div class="card-wide-inner">
+            <div class="card-icon card-icon--accent">
+              <iconify-icon icon="lucide:code-2" style="color: var(--accent); font-size: 1rem;"></iconify-icon>
+            </div>
+            <div class="card-wide-content">
+              <h3 class="card-title">Built-in SQL Editor</h3>
+              <p class="card-desc">Syntax highlighting, autocomplete, query history, and saved snippets.</p>
+              <div class="card-code-block">
+                <span class="syn-comment">-- create &amp; query instantly</span><br>
+                <span class="syn-keyword">CREATE TABLE</span> <span class="syn-text">posts</span> <span class="syn-dim">(</span><br>
+                <span class="syn-dim" style="padding-left: 1rem;">id</span> <span class="syn-muted">SERIAL PRIMARY KEY</span>,<br>
+                <span class="syn-dim" style="padding-left: 1rem;">title</span> <span class="syn-muted">VARCHAR(255)</span>,<br>
+                <span class="syn-dim" style="padding-left: 1rem;">published</span> <span class="syn-muted">BOOLEAN DEFAULT false</span><br>
+                <span class="syn-dim">);</span>
+                <div style="margin-top: 0.375rem; color: var(--emerald-400-50);">✓ Table created — 2ms</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 7: Import/Export (2-col) -->
+        <div class="bento-card bento-card--2col reveal">
+          <div class="card-icon card-icon--neutral">
+            <iconify-icon icon="lucide:arrow-up-down" style="color: var(--text-secondary); font-size: 1rem;"></iconify-icon>
+          </div>
+          <h3 class="card-title">Import / Export</h3>
+          <p class="card-desc card-desc--no-mb">JSON, CSV, SQL dumps. Move data freely between formats.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="container"><div class="section-divider"></div></div>
+
+  <!-- ========== WORKFLOW ========== -->
+  <section id="workflow" class="section">
+    <div class="container">
+      <div style="margin-bottom: 3.5rem;" class="reveal">
+        <p class="section-label">Workflow</p>
+        <h2 class="section-title">
+          From zero to production.
+          <span>Six steps.</span>
+        </h2>
+      </div>
+
+      <div class="flow-grid reveal">
+        <div class="flow-step">
+          <iconify-icon icon="lucide:folder-open" class="flow-step__icon" style="color: var(--accent);"></iconify-icon>
+          <div class="flow-step__title">Workspace</div>
+          <div class="flow-step__label">Create space</div>
+        </div>
+        <div class="flow-step">
+          <iconify-icon icon="lucide:box" class="flow-step__icon" style="color: var(--text-secondary);"></iconify-icon>
+          <div class="flow-step__title">Project</div>
+          <div class="flow-step__label">Initialize</div>
+        </div>
+        <div class="flow-step">
+          <iconify-icon icon="lucide:database" class="flow-step__icon" style="color: var(--text-secondary);"></iconify-icon>
+          <div class="flow-step__title">Database</div>
+          <div class="flow-step__label">Choose engine</div>
+        </div>
+        <div class="flow-step">
+          <iconify-icon icon="simple-icons:docker" class="flow-step__icon" style="color: var(--text-secondary);"></iconify-icon>
+          <div class="flow-step__title">Container</div>
+          <div class="flow-step__label">Auto-deploy</div>
+        </div>
+        <div class="flow-step">
+          <iconify-icon icon="lucide:plug" class="flow-step__icon" style="color: var(--text-secondary);"></iconify-icon>
+          <div class="flow-step__title">Connect</div>
+          <div class="flow-step__label">localhost URL</div>
+        </div>
+        <div class="flow-step flow-step--accent">
+          <iconify-icon icon="lucide:rocket" class="flow-step__icon" style="color: var(--accent);"></iconify-icon>
+          <div class="flow-step__title">Production</div>
+          <div class="flow-step__label">Push live</div>
+        </div>
+      </div>
+
+      <!-- Flow line -->
+      <div class="flow-line reveal">
+        <div class="flow-line__inner">
+          <div class="flow-dot"></div>
+          <div class="flow-segment flow-segment--start"></div>
+          <div class="flow-dot flow-dot--sm"></div>
+          <div class="flow-segment"></div>
+          <div class="flow-dot flow-dot--sm"></div>
+          <div class="flow-segment"></div>
+          <div class="flow-dot flow-dot--sm"></div>
+          <div class="flow-segment"></div>
+          <div class="flow-dot flow-dot--sm"></div>
+          <div class="flow-segment flow-segment--end"></div>
+          <div class="flow-dot"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="container"><div class="section-divider"></div></div>
+
+  <!-- ========== DEVELOPER EXPERIENCE ========== -->
+  <section id="devex" class="section">
+    <div class="container">
+      <div style="margin-bottom: 3.5rem;" class="reveal">
+        <p class="section-label">Developer Experience</p>
+        <h2 class="section-title">
+          Built for developers
+          <span>who ship fast.</span>
+        </h2>
+      </div>
+
+      <div class="devex-grid">
+        <!-- Terminal -->
+        <div class="terminal-window reveal">
+          <div class="terminal-bar">
+            <div class="window-dots">
+              <div class="window-dot"></div>
+              <div class="window-dot"></div>
+              <div class="window-dot"></div>
+            </div>
+            <span class="terminal-bar__label">Terminal</span>
+          </div>
+          <div class="terminal-body">
+            <div class="terminal-line"><span class="syn-dim">$</span> <span class="syn-text">dockerdb create workspace my-saas</span></div>
+            <div class="terminal-output syn-success">✓ Workspace "my-saas" created</div>
+            <div class="terminal-line terminal-gap"><span class="syn-dim">$</span> <span class="syn-text">dockerdb add postgres --name users-db</span></div>
+            <div class="terminal-output syn-dim">Pulling postgres:16-alpine…</div>
+            <div class="terminal-output syn-success">✓ PostgreSQL running on localhost:5432</div>
+            <div class="terminal-line terminal-gap"><span class="syn-dim">$</span> <span class="syn-text">dockerdb connect --orm prisma</span></div>
+            <div class="terminal-output syn-success">✓ Connection string copied</div>
+            <div class="terminal-output syn-dim" style="font-size: 10px;">DATABASE_URL="postgresql://admin:***@localhost:5432/users-db"</div>
+            <div class="terminal-line terminal-gap"><span class="syn-dim">$</span> <span class="syn-muted cursor-blink">▎</span></div>
+          </div>
+        </div>
+
+        <!-- Prisma config -->
+        <div class="prisma-window reveal">
+          <div class="prisma-bar">
+            <div class="prisma-bar__left">
+              <iconify-icon icon="simple-icons:prisma" style="color: var(--text-quaternary); font-size: 0.75rem;"></iconify-icon>
+              <span class="prisma-bar__file">schema.prisma</span>
+            </div>
+            <span class="prisma-bar__status">
+              <span style="width:4px;height:4px;border-radius:9999px;background:var(--emerald-400-40);display:inline-block;"></span>Synced
+            </span>
+          </div>
+          <div class="prisma-body">
+            <div><span class="syn-keyword">datasource</span> <span class="syn-text">db</span> <span class="syn-dim">{</span></div>
+            <div style="padding-left: 1rem;"><span class="syn-dim">provider =</span> <span class="syn-string">"postgresql"</span></div>
+            <div style="padding-left: 1rem;"><span class="syn-dim">url      =</span> <span class="syn-string">env("DATABASE_URL")</span></div>
+            <div><span class="syn-dim">}</span></div>
+            <div style="padding-top: 0.375rem;"><span class="syn-keyword">model</span> <span class="syn-text">User</span> <span class="syn-dim">{</span></div>
+            <div style="padding-left: 1rem;"><span class="syn-muted">id</span>    <span class="syn-dim">Int</span>      <span class="syn-annotation">@id @default(autoincrement())</span></div>
+            <div style="padding-left: 1rem;"><span class="syn-muted">email</span> <span class="syn-dim">String</span>   <span class="syn-annotation">@unique</span></div>
+            <div style="padding-left: 1rem;"><span class="syn-muted">name</span>  <span class="syn-dim">String?</span></div>
+            <div style="padding-left: 1rem;"><span class="syn-muted">posts</span> <span class="syn-dim">Post[]</span></div>
+            <div><span class="syn-dim">}</span></div>
+            <div style="padding-top: 0.375rem;"><span class="syn-keyword">model</span> <span class="syn-text">Post</span> <span class="syn-dim">{</span></div>
+            <div style="padding-left: 1rem;"><span class="syn-muted">id</span>     <span class="syn-dim">Int</span>     <span class="syn-annotation">@id @default(autoincrement())</span></div>
+            <div style="padding-left: 1rem;"><span class="syn-muted">title</span>  <span class="syn-dim">String</span></div>
+            <div style="padding-left: 1rem;"><span class="syn-muted">author</span> <span class="syn-dim">User</span>    <span class="syn-annotation">@relation(fields: [userId])</span></div>
+            <div><span class="syn-dim">}</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="container"><div class="section-divider"></div></div>
+
+  <!-- ========== CTA ========== -->
+  <section class="section section--cta">
+    <div class="container container--narrow cta-section reveal">
+      <h2 class="section-title">Ready to start?</h2>
+      <p class="section-desc" style="max-width: 24rem; margin: 0 auto 2rem; color: var(--text-tertiary);">
+        Your first workspace takes 30 seconds. No credit card. No complex setup.
+      </p>
+
+      <div class="cta-buttons">
+        <a id="cta-bottom-start" href="#" class="btn-primary">
+          Start Free Workspace
+          <iconify-icon icon="lucide:arrow-right" style="font-size: 0.875rem;"></iconify-icon>
+        </a>
+        <a id="cta-bottom-github" href="#" class="btn-secondary">
+          <iconify-icon icon="lucide:github" style="font-size: 0.875rem;"></iconify-icon>
+          GitHub
+        </a>
+      </div>
+
+      <div class="cta-trust">
+        <span class="cta-trust__item">
+          <iconify-icon icon="lucide:check" style="color: var(--emerald-400-50); font-size: 0.75rem;"></iconify-icon>Free forever
+        </span>
+        <span class="cta-trust__item">
+          <iconify-icon icon="lucide:check" style="color: var(--emerald-400-50); font-size: 0.75rem;"></iconify-icon>No credit card
+        </span>
+        <span class="cta-trust__item">
+          <iconify-icon icon="lucide:check" style="color: var(--emerald-400-50); font-size: 0.75rem;"></iconify-icon>Open source
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a id="footer-home-link" href="#" class="footer-brand__logo">
+            <img src="assets/logo.svg" alt="DockerDB" />
+          </a>
+          <p class="footer-brand__desc">The developer operating system for databases. Local-first, Docker-powered, cloud-ready.</p>
+        </div>
+        <div class="footer-column">
+          <h4 class="footer-column__title">Product</h4>
+          <div class="footer-column__links">
+            <a id="footer-features-link" href="#features" class="footer-column__link">Features</a>
+            <a id="footer-pricing-link" href="#" class="footer-column__link">Pricing</a>
+            <a id="footer-changelog-link" href="#" class="footer-column__link">Changelog</a>
+            <a id="footer-roadmap-link" href="#" class="footer-column__link">Roadmap</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4 class="footer-column__title">Resources</h4>
+          <div class="footer-column__links">
+            <a id="footer-docs-link" href="#" class="footer-column__link">Documentation</a>
+            <a id="footer-api-link" href="#" class="footer-column__link">API Reference</a>
+            <a id="footer-guides-link" href="#" class="footer-column__link">Guides</a>
+            <a id="footer-blog-link" href="#" class="footer-column__link">Blog</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4 class="footer-column__title">Company</h4>
+          <div class="footer-column__links">
+            <a id="footer-about-link" href="#" class="footer-column__link">About</a>
+            <a id="footer-github-link" href="#" class="footer-column__link">GitHub</a>
+            <a id="footer-twitter-link" href="#" class="footer-column__link">Twitter</a>
+            <a id="footer-discord-link" href="#" class="footer-column__link">Discord</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2025 DockerDB. All rights reserved.</p>
+        <div class="footer-socials">
+          <a id="footer-social-github" href="#" class="footer-social">
+            <iconify-icon icon="lucide:github" style="font-size: 0.875rem;"></iconify-icon>
+          </a>
+          <a id="footer-social-twitter" href="#" class="footer-social">
+            <iconify-icon icon="lucide:twitter" style="font-size: 0.875rem;"></iconify-icon>
+          </a>
+          <a id="footer-social-discord" href="#" class="footer-social">
+            <iconify-icon icon="simple-icons:discord" style="font-size: 0.875rem;"></iconify-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- Scripts -->
+<script src="js/main.js"></script>
+</body>
+</html>
