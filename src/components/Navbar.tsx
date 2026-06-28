@@ -1,6 +1,6 @@
 'use client';
 
-import { Icon } from '@iconify/react';
+import Icon from '@/components/Icon';
 import Image from 'next/image';
 
 export default function Navbar() {

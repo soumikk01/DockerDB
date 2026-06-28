@@ -1,6 +1,6 @@
 'use client';
 
-import { Icon } from '@iconify/react';
+import Icon from '@/components/Icon';
 
 const steps = [
   { icon: 'lucide:folder-open', title: 'Workspace', label: 'Create space', accent: true },
