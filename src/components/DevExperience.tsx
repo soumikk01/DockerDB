@@ -25,7 +25,7 @@ export default function DevExperience() {
               </div>
               <span className="terminal-bar__label">Terminal</span>
             </div>
-            <div className="terminal-body">
+            <div className="terminal-body terminal-cascade reveal">
               <div className="terminal-line"><span className="syn-dim">$</span> <span className="syn-text">dockerdb create workspace my-saas</span></div>
               <div className="terminal-output syn-success">✓ Workspace &quot;my-saas&quot; created</div>
               <div className="terminal-line terminal-gap"><span className="syn-dim">$</span> <span className="syn-text">dockerdb add postgres --name users-db</span></div>
@@ -49,7 +49,7 @@ export default function DevExperience() {
                 <span className="prisma-bar__status-dot" />Synced
               </span>
             </div>
-            <div className="prisma-body">
+            <div className="prisma-body code-cascade reveal">
               <div><span className="syn-keyword">datasource</span> <span className="syn-text">db</span> <span className="syn-dim">{'{'}</span></div>
               <div style={{ paddingLeft: '1rem' }}><span className="syn-dim">provider =</span> <span className="syn-string">&quot;postgresql&quot;</span></div>
               <div style={{ paddingLeft: '1rem' }}><span className="syn-dim">url      =</span> <span className="syn-string">env(&quot;DATABASE_URL&quot;)</span></div>

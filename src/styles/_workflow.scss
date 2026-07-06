@@ -24,11 +24,17 @@
   border-radius: 0.75rem;
   padding: 1.25rem;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   &:hover {
     background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.10);
+    border-color: rgba(59, 130, 246, 0.12);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+
+    .flow-step__icon {
+      transform: scale(1.15);
+    }
   }
 
   &--accent {
@@ -43,6 +49,7 @@
     font-size: 1.125rem;
     margin-bottom: 0.75rem;
     display: block;
+    transition: transform 0.3s ease;
   }
 
   &__title {

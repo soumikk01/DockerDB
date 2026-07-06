@@ -18,6 +18,13 @@
   border: 1px solid var(--border-subtle);
   border-radius: 0.75rem;
   overflow: hidden;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+
+  &:hover {
+    border-color: rgba(59, 130, 246, 0.1);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(59, 130, 246, 0.04);
+    transform: translateY(-2px);
+  }
 }
 
 .terminal-bar {
@@ -55,6 +62,13 @@
   border: 1px solid var(--border-subtle);
   border-radius: 0.75rem;
   overflow: hidden;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+
+  &:hover {
+    border-color: rgba(59, 130, 246, 0.1);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(59, 130, 246, 0.04);
+    transform: translateY(-2px);
+  }
 }
 
 .prisma-bar {

@@ -23,7 +23,7 @@ export default function Workflow() {
           </h2>
         </div>
 
-        <div className="flow-grid reveal">
+        <div className="flow-grid reveal stagger">
           {steps.map((step) => (
             <div key={step.title} className={`flow-step${step.isLast ? ' flow-step--accent' : ''}`}>
               <Icon
@@ -37,7 +37,7 @@ export default function Workflow() {
           ))}
         </div>
 
-        <div className="flow-line reveal">
+        <div className="flow-line reveal flow-line-anim">
           <div className="flow-line__inner">
             <div className="flow-dot" />
             <div className="flow-segment flow-segment--start" />
