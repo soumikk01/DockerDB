@@ -1,4 +1,7 @@
-// Keyframes
+// ============================================================
+// KEYFRAMES
+// ============================================================
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -14,15 +17,67 @@
   50% { opacity: 0; }
 }
 
-// Animation utilities
-.fade-in { animation: fadeIn 0.8s ease both; }
-.fade-in-up { animation: fadeInUp 0.7s ease both; }
-
-@for $i from 1 through 7 {
-  .delay-#{$i} { animation-delay: #{$i * 0.1}s; }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
-// Scroll reveal fallback keyframes — ensures content appears even if JS observer fails
+@keyframes floatAlt {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.05); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes drawLine {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes dotPop {
+  0% { opacity: 0; transform: scale(0); }
+  60% { transform: scale(1.3); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes terminalLine {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes statusPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.4); }
+  50% { box-shadow: 0 0 0 4px rgba(52, 211, 153, 0); }
+}
+
 @keyframes revealFallback {
   to {
     opacity: 1;
@@ -30,24 +85,169 @@
   }
 }
 
-// Scroll reveal
+@keyframes revealFallbackX {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes revealFallbackScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes revealFallbackScaleX {
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+// ============================================================
+// ANIMATION UTILITIES
+// ============================================================
+
+.fade-in { animation: fadeIn 0.8s ease both; }
+.fade-in-up { animation: fadeInUp 0.7s ease both; }
+.scale-in { animation: scaleIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; }
+
+@for $i from 1 through 10 {
+  .delay-#{$i} { animation-delay: #{$i * 0.1}s; }
+}
+
+// ============================================================
+// SCROLL REVEAL (with stagger support)
+// ============================================================
+
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  // CSS-only safety net: if .visible is never added, content still appears after 1s
-  animation: revealFallback 0.6s ease 1s both;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: revealFallback 0.7s ease 1.5s both;
 
   &.visible {
-    // When JS works, override the fallback animation and apply immediately
     animation: none;
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-// Cursor blink
+// Stagger children: parent gets .stagger, children auto-delay
+.stagger.visible > * {
+  @for $i from 1 through 12 {
+    &:nth-child(#{$i}) {
+      transition-delay: #{($i - 1) * 0.08}s;
+    }
+  }
+}
+
+.stagger > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: revealFallback 0.5s ease 1.8s both;
+}
+
+.stagger.visible > * {
+  animation: none;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+// ============================================================
+// CURSOR BLINK
+// ============================================================
+
 .cursor-blink {
   animation: blink 1.2s step-end infinite;
+}
+
+// ============================================================
+// TERMINAL LINE CASCADE (appears line by line in view)
+// ============================================================
+
+.terminal-cascade > * {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  animation: revealFallbackX 0.4s ease 2s both;
+}
+
+.terminal-cascade.visible > * {
+  animation: none;
+  opacity: 1;
+  transform: translateX(0);
+
+  @for $i from 1 through 12 {
+    &:nth-child(#{$i}) {
+      transition-delay: #{($i - 1) * 0.12}s;
+    }
+  }
+}
+
+// ============================================================
+// CODE LINE CASCADE (Prisma schema appear line by line)
+// ============================================================
+
+.code-cascade > * {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  animation: revealFallback 0.35s ease 2.2s both;
+}
+
+.code-cascade.visible > * {
+  animation: none;
+  opacity: 1;
+  transform: translateY(0);
+
+  @for $i from 1 through 20 {
+    &:nth-child(#{$i}) {
+      transition-delay: #{($i - 1) * 0.06}s;
+    }
+  }
+}
+
+// ============================================================
+// FLOW LINE DRAW ANIMATION
+// ============================================================
+
+.flow-line-anim {
+  .flow-segment {
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation: revealFallbackScaleX 0.5s ease 2.5s both;
+  }
+
+  .flow-dot {
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: revealFallbackScale 0.3s ease 2.5s both;
+  }
+
+  &.visible {
+    .flow-dot {
+      animation: none;
+      opacity: 1;
+      transform: scale(1);
+    }
+    .flow-segment {
+      animation: none;
+      transform: scaleX(1);
+    }
+
+    // Stagger the segments and dots
+    @for $i from 1 through 12 {
+      .flow-line__inner > *:nth-child(#{$i}) {
+        transition-delay: #{($i - 1) * 0.1}s;
+      }
+    }
+  }
 }

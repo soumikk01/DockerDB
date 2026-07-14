@@ -1,5 +1,3 @@
-'use client';
-
 import Icon from '@/components/Icon';
 
 const steps = [
@@ -8,7 +6,7 @@ const steps = [
   { icon: 'lucide:database', title: 'Database', label: 'Choose engine', accent: false },
   { icon: 'simple-icons:docker', title: 'Container', label: 'Auto-deploy', accent: false },
   { icon: 'lucide:plug', title: 'Connect', label: 'localhost URL', accent: false },
-  { icon: 'lucide:rocket', title: 'Production', label: 'Push live', accent: true, isLast: true },
+  { icon: 'lucide:rocket', title: 'Production', label: 'Push live', accent: true },
 ];
 
 export default function Workflow() {
@@ -23,9 +21,9 @@ export default function Workflow() {
           </h2>
         </div>
 
-        <div className="flow-grid reveal">
+        <div className="flow-grid reveal stagger">
           {steps.map((step) => (
-            <div key={step.title} className={`flow-step${step.isLast ? ' flow-step--accent' : ''}`}>
+            <div key={step.title} className={`flow-step${step.accent ? ' flow-step--accent' : ''}`}>
               <Icon
                 icon={step.icon}
                 className="flow-step__icon"
@@ -37,7 +35,7 @@ export default function Workflow() {
           ))}
         </div>
 
-        <div className="flow-line reveal">
+        <div className="flow-line reveal flow-line-anim">
           <div className="flow-line__inner">
             <div className="flow-dot" />
             <div className="flow-segment flow-segment--start" />

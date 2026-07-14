@@ -15,11 +15,12 @@
     position: absolute;
     width: 600px;
     height: 400px;
-    background: radial-gradient(ellipse, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
     top: -100px;
     left: 50%;
     transform: translateX(-50%);
     pointer-events: none;
+    animation: glowPulse 6s ease-in-out infinite;
   }
 
   &__grid {
@@ -47,6 +48,22 @@
     border-radius: 9999px;
     padding: 0.25rem 0.875rem;
     align-self: flex-start;
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(59, 130, 246, 0.08) 50%,
+        transparent 100%
+      );
+      background-size: 200% 100%;
+      animation: shimmer 3s ease-in-out infinite;
+    }
   }
 
   &__badge-dot {
@@ -130,10 +147,12 @@
   border-radius: 0.75rem;
   overflow: hidden;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
-  transition: border-color 0.3s ease;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
 
   &:hover {
-    border-color: rgba(255, 255, 255, 0.10);
+    border-color: rgba(59, 130, 246, 0.15);
+    box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(59, 130, 246, 0.05);
+    transform: translateY(-2px);
   }
 }
 
@@ -193,6 +212,19 @@
   font-size: 12px;
   line-height: 1.7;
   border: 1px solid var(--border-subtle);
+
+  // SQL lines appear one by one on load
+  > div {
+    opacity: 0;
+    transform: translateY(4px);
+    animation: fadeInUp 0.4s ease both;
+
+    @for $i from 1 through 8 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{0.6 + ($i * 0.15)}s;
+      }
+    }
+  }
 }
 
 .results-table {
@@ -254,6 +286,7 @@
   height: 0.375rem;
   border-radius: 9999px;
   background: var(--emerald-400-70);
+  animation: statusPulse 2s ease-in-out infinite;
 }
 
 .status-info {
@@ -272,15 +305,22 @@
   border-radius: 0.5rem;
   padding: 0.5rem 0.75rem;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 20px 30px -5px rgba(0, 0, 0, 0.4), 0 0 20px rgba(59, 130, 246, 0.06);
+  }
 
   &--left {
     top: -340px;
     left: -40px;
+    animation: float 4s ease-in-out infinite;
   }
 
   &--right {
     top: -160px;
     right: -32px;
+    animation: floatAlt 5s ease-in-out 0.5s infinite;
   }
 
   &__inner {
@@ -319,5 +359,6 @@
     border-radius: 9999px;
     background: var(--emerald-400-60);
     display: inline-block;
+    animation: statusPulse 2.5s ease-in-out infinite;
   }
 }

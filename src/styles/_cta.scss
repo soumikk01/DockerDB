@@ -2,6 +2,20 @@
 
 .cta-section {
   text-align: center;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 200px;
+    background: radial-gradient(ellipse, rgba(59, 130, 246, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+    animation: glowPulse 5s ease-in-out infinite;
+  }
 
   .section-title {
     margin-bottom: 1rem;

@@ -1,6 +1,5 @@
-'use client';
-
 import Icon from '@/components/Icon';
+import WindowDots from '@/components/WindowDots';
 
 export default function Hero() {
   return (
@@ -49,11 +48,7 @@ export default function Hero() {
           <div className="hero__illustration fade-in-up delay-3">
             <div className="workspace-card">
               <div className="window-bar">
-                <div className="window-dots">
-                  <div className="window-dot" />
-                  <div className="window-dot" />
-                  <div className="window-dot" />
-                </div>
+                <WindowDots />
                 <span className="window-title">my-project — DockerDB</span>
                 <div className="window-spacer" />
               </div>

@@ -9,9 +9,6 @@ export default function ScrollReveal() {
 
     // Small delay to ensure all client components have hydrated and rendered
     const timeoutId = setTimeout(() => {
-      const elements = document.querySelectorAll('.reveal');
-      if (elements.length === 0) return;
-
       intersectionObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -24,6 +21,7 @@ export default function ScrollReveal() {
         { threshold: 0.05, rootMargin: '0px 0px -20px 0px' }
       );
 
+      const elements = document.querySelectorAll('.reveal');
       elements.forEach((el) => intersectionObserver!.observe(el));
 
       // Watch for new .reveal elements added to the DOM dynamically

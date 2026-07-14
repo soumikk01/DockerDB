@@ -19,12 +19,17 @@
   border: 1px solid var(--border-subtle);
   border-radius: 0.75rem;
   padding: 1.5rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  position: relative;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   &:hover {
-    border-color: rgba(255, 255, 255, 0.10);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
+    border-color: rgba(59, 130, 246, 0.12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(59, 130, 246, 0.05);
+    transform: translateY(-3px);
+
+    .card-icon {
+      transform: scale(1.05);
+    }
   }
 
   &--3col { grid-column: span 3; }
@@ -46,6 +51,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 1.25rem;
+  transition: transform 0.3s ease;
 
   &--accent {
     background: var(--accent-subtle);
