@@ -1,5 +1,3 @@
-'use client';
-
 import Icon from '@/components/Icon';
 import Image from 'next/image';
 
@@ -57,7 +55,7 @@ export default function Footer() {
           ))}
         </div>
         <div className="footer-bottom">
-          <p className="footer-copyright">© 2025 DockerDB. All rights reserved.</p>
+          <p className="footer-copyright">© {new Date().getFullYear()} DockerDB. All rights reserved.</p>
           <div className="footer-socials">
             {socialLinks.map((social) => (
               <a key={social.id} id={social.id} href={social.href} className="footer-social">

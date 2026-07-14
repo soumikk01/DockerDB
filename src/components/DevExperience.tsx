@@ -1,6 +1,5 @@
-'use client';
-
 import Icon from '@/components/Icon';
+import WindowDots from '@/components/WindowDots';
 
 export default function DevExperience() {
   return (
@@ -18,11 +17,7 @@ export default function DevExperience() {
           {/* Terminal */}
           <div className="terminal-window reveal">
             <div className="terminal-bar">
-              <div className="window-dots">
-                <div className="window-dot" />
-                <div className="window-dot" />
-                <div className="window-dot" />
-              </div>
+              <WindowDots />
               <span className="terminal-bar__label">Terminal</span>
             </div>
             <div className="terminal-body terminal-cascade reveal">
