@@ -10,7 +10,7 @@ export default function CtaSection() {
         </p>
 
         <div className="cta-buttons">
-          <a id="cta-bottom-start" href="#" className="btn-primary">
+          <a id="cta-bottom-start" href="/select-database" className="btn-primary">
             Start Free Workspace
             <Icon icon="lucide:arrow-right" style={{ fontSize: '0.875rem' }} />
           </a>

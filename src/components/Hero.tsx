@@ -24,7 +24,7 @@ export default function Hero() {
             </p>
 
             <div className="hero__cta-group fade-in-up delay-3">
-              <a id="cta-start-workspace" href="#" className="btn-primary">
+              <a id="cta-start-workspace" href="/select-database" className="btn-primary">
                 <Icon icon="lucide:play" style={{ fontSize: '0.875rem' }} />
                 Start Workspace
               </a>
