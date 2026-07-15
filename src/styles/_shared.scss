@@ -61,6 +61,24 @@
     box-shadow: 0 6px 24px var(--accent-20), 0 0 40px rgba(59, 130, 246, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.15);
     transform: translateY(-2px);
 
+    svg {
+      path, line, polyline, polygon, rect, circle {
+        stroke: currentColor;
+        stroke-width: 2px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 120;
+        stroke-dashoffset: 120;
+        animation: drawIcon 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+
+      @for $i from 1 through 12 {
+        > *:nth-child(#{$i}) {
+          animation-delay: ($i - 1) * 0.08s;
+        }
+      }
+    }
+
     &::after {
       opacity: 1;
       animation: shimmer 2s ease-in-out infinite;
