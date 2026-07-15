@@ -8,5 +8,11 @@
 @use '../styles/devex';
 @use '../styles/cta';
 @use '../styles/footer';
+@use '../styles/select-database';
+@use '../styles/workspace';
 
 @import url('https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&f[]=jet-brains-mono@400,500&display=swap');
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

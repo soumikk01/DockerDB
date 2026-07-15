@@ -19,7 +19,7 @@ export default function Navbar() {
         </div>
         <div className="nav__actions">
           <a id="nav-signin-link" href="#" className="nav__signin">Sign in</a>
-          <a id="nav-cta-link" href="#" className="btn-primary btn-primary--nav">
+          <a id="nav-cta-link" href="/select-database" className="btn-primary btn-primary--nav">
             Get Started
             <Icon icon="lucide:arrow-right" style={{ fontSize: '0.75rem' }} />
           </a>

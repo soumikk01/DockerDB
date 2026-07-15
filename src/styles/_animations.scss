@@ -251,3 +251,18 @@
     }
   }
 }
+
+@keyframes drawIcon {
+  0% {
+    stroke-dashoffset: 120;
+    fill-opacity: 0;
+  }
+  30% {
+    fill-opacity: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    fill-opacity: 1;
+  }
+}
+
