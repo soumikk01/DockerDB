@@ -807,3 +807,52 @@
   &--yes { color: var(--emerald-400-70); }
   &--no  { color: var(--text-quaternary); }
 }
+
+// ── Code block (connection strings) ───────────────────────────
+.ws-code-block {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.625rem;
+  overflow: hidden;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.875rem;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    background: rgba(255,255,255,0.02);
+  }
+
+  &__copy {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    background: none;
+    border: 1px solid var(--border-subtle);
+    border-radius: 0.375rem;
+    color: var(--text-tertiary);
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+
+    &:hover {
+      color: var(--text-primary);
+      border-color: rgba(255,255,255,0.15);
+    }
+  }
+
+  &__content {
+    display: block;
+    padding: 0.75rem 0.875rem;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 0.78rem;
+    color: #93c5fd;
+    word-break: break-all;
+    white-space: pre-wrap;
+    line-height: 1.6;
+  }
+}

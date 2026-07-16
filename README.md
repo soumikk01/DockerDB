@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DockerDB
 
-## Getting Started
+> **Open-source local database development tool.**
+> Spin up production-grade databases instantly in Docker, get a connection URL, and wire it into your app — no cloud accounts, no config files.
 
-First, run the development server:
+---
+
+## What it does
+
+1. You pick a database engine (PostgreSQL, MySQL, MongoDB, Redis)
+2. DockerDB pulls the Docker image and starts a container on your machine
+3. DockerDB generates a connection URL and ORM snippets (Prisma, Drizzle)
+4. You paste that URL into your app's `.env` and start building
+
+---
+
+## Requirements
+
+| Tool | Purpose |
+|---|---|
+| [Node.js 18+](https://nodejs.org) | Run the Next.js frontend |
+| [Go 1.22+](https://go.dev/dl/) | Run the Go backend |
+| [Docker Desktop](https://www.docker.com/products/docker-desktop/) | Run database containers |
+
+---
+
+## Quick Start
+
+### 1 — Clone the repo
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/soumikk01/DockerDB.git
+cd DockerDB
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2 — Start the Go backend
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd backend
+go run ./cmd/server
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+You should see:
+```
+[docker] Connected to Docker Desktop via named pipe
+[main] DockerDB backend listening on http://localhost:8080
+```
 
-## Learn More
+### 3 — Start the Next.js frontend
 
-To learn more about Next.js, take a look at the following resources:
+In a **separate terminal**:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# (from project root)
+npm install
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 4 — Open the app
 
-## Deploy on Vercel
+Go to **http://localhost:3000**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 5 — Pick a database
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Click **Get Started** → choose a database engine → DockerDB will:
+- Pull the Docker image (first time only, may take 1–2 minutes)
+- Start the container
+- Generate your connection URL
+
+### 6 — Use it in your app
+
+Copy the connection URL shown in the **Database Management** panel and add it to your app:
+
+```env
+# .env
+DATABASE_URL=postgresql://postgres:yourpassword@localhost:5432/myapp
+```
+
+---
+
+## Architecture
+
+```
+DockerDB/
+├── backend/          # Go backend (Gin + Docker REST API + SQLite)
+│   ├── cmd/server/   # Entry point
+│   ├── internal/     # Business logic (database, docker, query, schema, ws)
+│   └── pkg/          # Shared packages (config, db, response)
+│
+└── src/              # Next.js frontend
+    ├── app/          # Pages (home, select-database, workspace)
+    ├── components/   # UI components + workspace panels
+    ├── lib/api.ts    # Typed API client
+    └── styles/       # SCSS styles
+```
+
+## API Reference
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/v1/databases` | List all databases |
+| POST | `/api/v1/databases` | Create + provision Docker container |
+| GET | `/api/v1/databases/:id/connect` | Get connection string + ORM snippets |
+| POST | `/api/v1/databases/:id/query` | Execute a query |
+| GET | `/api/v1/databases/:id/schema` | Get schema (tables, columns) |
+| WS | `/ws/databases/:id/logs` | Live container log stream |
+
+---
+
+## Supported Databases
+
+| Engine | Version | Default Port |
+|--------|---------|--------------|
+| PostgreSQL | 16 | 5432 |
+| MySQL | 8 | 3306 |
+| MongoDB | 7 | 27017 |
+| Redis | 7 | 6379 |
+
+---
+
+## License
+
+MIT
