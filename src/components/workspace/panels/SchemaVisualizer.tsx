@@ -33,7 +33,7 @@ export default function SchemaVisualizer({ db }: { db: Database }) {
         <div style={{ color: 'var(--text-tertiary)', fontSize: '0.875rem', display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
           <Icon icon="lucide:loader" style={{ animation: 'spin 1s linear infinite' }} /> Loading schema…
         </div>
-      ) : !schema || schema.tables.length === 0 ? (
+      ) : !schema || !schema.tables?.length ? (
         <div style={{ color: 'var(--text-tertiary)', fontSize: '0.875rem', padding: '2rem', textAlign: 'center' }}>
           No tables found — create tables in your database to see the schema here.
         </div>
